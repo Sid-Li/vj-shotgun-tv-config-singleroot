@@ -1,0 +1,5 @@
+primary:
+    description: "Assets and Shots library"
+    mac_path:
+    linux_path:
+    windows_path: 'E:\workspace\python\shotgun\projects'

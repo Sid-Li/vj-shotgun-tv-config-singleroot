@@ -1,0 +1,10 @@
+publish_mono_playblast:
+  description: Publish playblast for current mono camera
+  display_group: Playblast
+  display_name: Mono Playblast
+  icon: icons/mono_playblast_publish.png
+  name: mono_playblast
+  publish_template: shot_mono_playblast
+  required: false
+  selected: false
+  tank_type: Mono Playblast
