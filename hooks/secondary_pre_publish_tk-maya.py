@@ -91,6 +91,8 @@ class PrePublishHook(Hook):
             # pre-publish alembic_cache output
             if output["name"] == "alembic_cache":
                 errors.extend(self.__validate_item_for_alembic_cache_publish(item))
+            elif output['name'] == 'mono_playblast':
+                errors.extend(self.__validate_item_for_mono_playblast_publish(item))
             else:
                 # don't know how to publish this output types!
                 errors.append("Don't know how to publish this item!")            
@@ -123,5 +125,10 @@ class PrePublishHook(Hook):
             errors.append("The scene does not contain any geometry!")
     
         # finally return any errors
-        return errors    
-    
+        return errors
+
+    def __validate_item_for_mono_playblast_publish(self, item):
+        errors = []
+
+        # finally return any errors
+        return errors

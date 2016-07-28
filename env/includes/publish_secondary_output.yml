@@ -5,6 +5,7 @@ publish_mono_playblast:
   icon: icons/mono_playblast_publish.png
   name: mono_playblast
   publish_template: shot_mono_playblast
+  scene_item_type: playblast
   required: false
-  selected: false
+  selected: true
   tank_type: Mono Playblast

@@ -122,6 +122,20 @@ class PublishHook(Hook):
                     )
                 except Exception, e:
                    errors.append("Publish failed - %s" % e)
+            elif output['name'] == 'mono_playblast':
+                try:
+                   self.__publish_mono_playblast(
+                        item,
+                        output,
+                        work_template,
+                        primary_publish_path,
+                        sg_task,
+                        comment,
+                        thumbnail_path,
+                        progress_cb,
+                    )
+                except Exception, e:
+                   errors.append("Publish failed - %s" % e)
             else:
                 # don't know how to publish this output types!
                 errors.append("Don't know how to publish this item!")
@@ -241,5 +255,68 @@ class PublishHook(Hook):
         start = int(cmds.playbackOptions(q=True, min=True))
         end = int(cmds.playbackOptions(q=True, max=True))        
         
-        return (start, end)
+        return start, end
+
+    def __publish_mono_playblast(self, item, output, work_template, primary_publish_path, sg_task, comment,
+                                 thumbnail_path, progress_cb):
+
+        # determine the publish info to use
+        #
+        progress_cb(40, "Determining publish details")
+
+        # get the current scene path and extract fields from it
+        # using the work template:
+        scene_path = os.path.abspath(cmds.file(query=True, sn=True))
+        fields = work_template.get_fields(scene_path)
+        publish_version = fields["version"]
+        tank_type = output["tank_type"]
+
+        # create the publish path by applying the fields
+        # with the publish template:
+        publish_template = output["publish_template"]
+        publish_path = publish_template.apply_fields(fields)
+
+        # ensure the publish folder exists:
+        publish_folder = os.path.dirname(publish_path)
+        self.parent.ensure_folder_exists(publish_folder)
+
+        # determine the publish name:
+        publish_name = fields.get("name")
+        if not publish_name:
+            publish_name = os.path.basename(publish_path)
+
+        # Find additional info from the scene:
+        #
+        progress_cb(40, "Analysing scene")
+
+        # find the animated frame range to use:
+        start_frame, end_frame = self._find_scene_animation_range()
+        # shot_anim.playblast(op.filePath(op.PlayblastFileType))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

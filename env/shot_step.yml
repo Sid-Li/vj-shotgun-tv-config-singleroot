@@ -546,10 +546,10 @@ engines:
         hook_copy_file: default
         hook_post_publish: default
         hook_primary_pre_publish: default
-        hook_primary_publish: default
-        hook_scan_scene: default
-        hook_secondary_pre_publish: default
-        hook_secondary_publish: default
+        hook_primary_publish: primary_publish
+        hook_scan_scene: scan_scene_tk-maya
+        hook_secondary_pre_publish: secondary_pre_publish_tk-maya
+        hook_secondary_publish: secondary_publish_tk-maya
         hook_thumbnail: default
         location:
           version: v0.9.2

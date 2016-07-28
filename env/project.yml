@@ -74,7 +74,7 @@ engines:
       tk-multi-launchphotoshop: '@launch_photoshop'
       tk-multi-screeningroom: '@launch_screeningroom'
     collapse_rules:
-    - {button_label: $app, match: Launch $app, menu_label: None}
+    - {button_label: Launch $app, match: Launch $app $version, menu_label: $version}
     debug_logging: false
     default_group: Studio
     groups:
