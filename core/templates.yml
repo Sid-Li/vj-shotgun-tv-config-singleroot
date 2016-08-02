@@ -35,6 +35,8 @@ keys:
         type: str
     Step:
         type: str
+    Entity:
+        type: str
     sg_asset_type:
         type: str
     Asset:
@@ -57,6 +59,19 @@ keys:
         type: int
     height:
         type: int
+    QC_timestamp_dir:
+      type: timestamp
+      format_spec: "%Y%m%d"
+      default: now
+    now:
+      type: timestamp
+      format_spec: "%Y%m%d"
+      default: now
+    current_user_name:
+      type: str
+      shotgun_entity_type: HumanUser
+      shotgun_field_name: login
+
 
     # Represents the optional output name for frames written by the Shotgun Write Node
     nuke.output:
@@ -121,6 +136,10 @@ keys:
         default: ma
         alias: extension
 
+    # extension for review
+    ext:
+      type: str
+
 #
 # The paths section contains all the the key locations where files are to be stored
 # by Sgtk Apps. Each path is made up of several keys (like {version} or {shot}) and
@@ -149,6 +168,7 @@ paths:
     asset_root: 3D/asset/{sg_asset_type}/{Asset}/{Step}
     sequence_root: 3D/shot/{Episode}/{Sequence}
     shot_output_root: comp_output/{Episode}/{Sequence}/{Shot}
+    review_root: QC/{QC_timestamp_dir}/{Step}/{current_user_name}
 
 
     ##########################################################################################
@@ -420,6 +440,14 @@ paths:
     # The location of published nuke script files
     nuke_asset_publish:
         definition: '@asset_root/publish/nuke/{name}.{Step}.v{version}.nk'
+        root_name: 'primary'
+
+
+
+    ##########################################################################################
+    # QC pipeline
+    review_version:
+        definition: '@review_root/{Entity}.{Step}.{name}.{timestamp}.{ext}'
         root_name: 'primary'
 
 

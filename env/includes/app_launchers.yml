@@ -134,7 +134,7 @@ launch_maya:
     name: tk-multi-launchapp
   mac_args: ''
   mac_path: '@maya_mac'
-  menu_name: 'Launch Maya {version}'
+  menu_name: Launch Maya {version}
   versions: ['2014']
   windows_args: ''
   windows_path: '@maya_windows'
@@ -268,3 +268,15 @@ launch_softimage:
   versions: []
   windows_args: ''
   windows_path: '@softimage_windows'
+#
+# -------------------------------------------------
+# MX Local Version Submit
+# -------------------------------------------------
+launch_mx_local_version_submit:
+  location:
+    path: https://github.com/Sid-Li/mx-local-version-submit.git
+    version: v1.0.1
+    type: git
+# for debugging
+#    path: E:\workspace\python\shotgun\apps\mx-local-version-submit
+#    type: dev

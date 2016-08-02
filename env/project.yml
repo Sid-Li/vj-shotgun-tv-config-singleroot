@@ -519,6 +519,7 @@ engines:
       tk-multi-launchnukestudio: '@launch_nukestudio'
       tk-multi-launchphotoshop: '@launch_photoshop'
       tk-multi-screeningroom: '@launch_screeningroom'
+      mx-local-version-submit: '@launch_mx_local_version_submit'
 #      tk-multi-launchhiero: '@launch_hiero'
 #      tk-multi-launchhoudini: '@launch_houdini'
 #      tk-multi-launchmari: '@launch_mari'
