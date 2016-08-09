@@ -275,7 +275,7 @@ launch_softimage:
 launch_mx_local_version_submit:
   location:
     path: https://github.com/Sid-Li/mx-local-version-submit.git
-    version: v1.0.1
+    version: v1.0.7
     type: git
 # for debugging
 #    path: E:\workspace\python\shotgun\apps\mx-local-version-submit
